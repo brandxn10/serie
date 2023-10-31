@@ -18,23 +18,12 @@
 <link rel="manifest" href="/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>South</title>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css">
-    <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-              console.log('Service Worker registrado con éxito:', registration);
-            })
-            .catch(function(error) {
-              console.log('Error al registrar el Service Worker:', error);
-            });
-        }
-      </script>
-
     <style>
     .image-container {
     max-width: 100%;
@@ -72,21 +61,17 @@
         <div class="carta image-container">
             <img id="imagen" src="" alt="" class="link">
         </div>
-    
-        <div class="carta image-container">
-            <img id="estilo" src="" alt="" class="link">
-        </div>
     </div>
     </center>
     <br>
     <a href="index.html"><button class="btn btn-danger">Volver</button></a>
     <br>
-<script src="app.js"></script>
-<script>
-            document.addEventListener('DOMContentLoaded', function() {
-            select.value = 1;
-            cambiar();
-});
-</script>
+    <script src="app.js"></script>
+    <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                select.value = 1;
+                cambiar();
+    });
+    </script>
 </body>
 </html>

@@ -1,26 +1,26 @@
+
 const imagen = document.getElementById('imagen');
 const nombre = document.getElementById('nombre');
 const select = document.getElementById('selector');
-const estilo = document.getElementById('estilo');
 const selectEstilo = document.getElementById('selectorEstilo');
 const links = document.getElementsByClassName('link');
 
 links[0].addEventListener('click', function(event){
     event.preventDefault();
-
-    window.location.href = 'descripcion.html?opcion='+select.value;
-});
-
-links[1].addEventListener('click', function(event){
-    event.preventDefault();
-
-    window.location.href = 'descripcion.html?opcion='+select.value;
+    let selectedIndex = selectEstilo.selectedIndex;
+    let parametro;
+    if(selectedIndex != -1){
+       parametro = selectEstilo.options[selectedIndex].text; 
+    }else{
+        parametro = "";
+    }
+    
+    window.location.href = 'descripcion.html?opcion='+select.value+'&estilo='+parametro;
 });
 
 
 function cambiar(){
     let opc = select.value;
-    estilo.src = "";
     switch(opc){
         case '1':
             nombre.innerText = "Eric";
@@ -265,93 +265,93 @@ function cambiaEstilo(){
     switch(select.value){
         case '1':
             if(opc == '1'){
-                estilo.src = "img/ericHitler.png";
+                imagen.src = "img/ericHitler.png";
             }else if(opc == '2'){
-                estilo.src = "img/ericPolicia.png";
+                imagen.src = "img/ericPolicia.png";
             }else{
-                estilo.src = "img/ericMago.png";
+                imagen.src = "img/ericMago.png";
             }
         break;
 
         case '2':
             if(opc == '1'){
-                estilo.src = "img/stanDisfraz.png";
+                imagen.src = "img/stanDisfraz.png";
             }else if(opc == '2'){
-                estilo.src = "img/stanV2.png";
+                imagen.src = "img/stanV2.png";
             }else{
-                estilo.src = "img/stanVillano.png";
+                imagen.src = "img/stanVillano.png";
             }
         break;
 
         case '3':
             if(opc == '1'){
-                estilo.src = "img/buttersMago.png";
+                imagen.src = "img/buttersMago.png";
             }else if(opc == '2'){
-                estilo.src = "img/buttersV2.png";
+                imagen.src = "img/buttersV2.png";
             }else{
-                estilo.src = "img/buttersNovio.png";
+                imagen.src = "img/buttersNovio.png";
             }
         break;
 
         case '4':
             if(opc == '1'){
-                estilo.src = "img/kyleLoco.png";
+                imagen.src = "img/kyleLoco.png";
             }else if(opc == '2'){
-                estilo.src = "img/kyleMago.png";
+                imagen.src = "img/kyleMago.png";
             }else{
-                estilo.src = "img/kyleSonriendo.png";
+                imagen.src = "img/kyleSonriendo.png";
             }
         break;
 
         case '5':
             if(opc == '1'){
-                estilo.src = "img/kennyFlecha.png";
+                imagen.src = "img/kennyFlecha.png";
             }else if(opc == '2'){
-                estilo.src = "img/kennyQuemado.png";
+                imagen.src = "img/kennyQuemado.png";
             }else{
-                estilo.src = "img/kennyRobot.png";
+                imagen.src = "img/kennyRobot.png";
             }
         break;
         
         case '6':
             if(opc == '1'){
-                estilo.src = "img/randyV2.png";
+                imagen.src = "img/randyV2.png";
             }else if(opc == '2'){
-                estilo.src = "img/randyV3.png";
+                imagen.src = "img/randyV3.png";
             }
         break;
 
         case '7':
             if(opc == '1'){
-                estilo.src = "img/toallinFumando.png";
+                imagen.src = "img/toallinFumando.png";
             }else if(opc == '2'){
-                estilo.src = "img/toallinMusculoso.png";
+                imagen.src = "img/toallinMusculoso.png";
             }
         break;
 
         case '8':
             if(opc == '1'){
-                estilo.src = "img/tokenWhite.png";
+                imagen.src = "img/tokenWhite.png";
             }else if(opc == '2'){
-                estilo.src = "img/tokenNick.png";
+                imagen.src = "img/tokenNick.png";
             }
         break;
 
         case '9':
             if(opc == '1'){
-                estilo.src = "img/jimmyV2.png";
+                imagen.src = "img/jimmyV2.png";
             }else if(opc == '2'){
-                estilo.src = "img/timmy.png";
+                imagen.src = "img/timmy.png";
             }
         break;
 
         default:
             if(opc == '1'){
-                estilo.src = "img/ikeMayor.png";
+                imagen.src = "img/ikeMayor.png";
             }else if(opc == '2'){
-                estilo.src = "img/ikeV2.png";
+                imagen.src = "img/ikeV2.png";
             }else{
-                estilo.src = "img/kyleIke.png";
+                imagen.src = "img/kyleIke.png";
             }
         break;
     }

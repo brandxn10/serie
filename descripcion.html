@@ -21,19 +21,9 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css">
-    <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-              console.log('Service Worker registrado con éxito:', registration);
-            })
-            .catch(function(error) {
-              console.log('Error al registrar el Service Worker:', error);
-            });
-        }
-    </script>
     <style>
         body{
             padding: 5px;
@@ -51,16 +41,21 @@
         <br>
     <a href="personajes.html"><button class="btn btn-danger">Volver</button></a>
     <br>
+    <input type="hidden" name="" id="nombre" value="">
+    <input type="hidden" name="" id="estilo" value="">
     <script>
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const personaje = urlParams.get('opcion');
+        const estilo = urlParams.get('estilo');
         const imagen = document.getElementById('imagen');
         const titulo = document.getElementById('titulo');
         const texto = document.getElementById('parrafo');
+        let nombre;
 
         switch(personaje){
             case '1':
+                nombre = 'Eric Cartman';
                 document.title = "Eric Cartman";
                 imagen.src = "img/eric.png";
                 titulo.innerText = document.title;
@@ -68,6 +63,7 @@
             break;
 
             case '2':
+                nombre = 'Stan Marsh';
                 document.title = "Stan Marsh";
                 imagen.src = "img/stan.png";
                 titulo.innerText = document.title;
@@ -75,6 +71,7 @@
             break;
 
             case '3':
+                nombre =  "Leopold 'Butters' Stotch";
                 document.title = "Leopold 'Butters' Stotch";
                 imagen.src = "img/butters.png";
                 titulo.innerText = document.title;
@@ -82,6 +79,7 @@
             break;
 
             case '4':
+                nombre = "Kyle Broflovski";
                 document.title = "Kyle Broflovski";
                 imagen.src = "img/kyle.png";
                 titulo.innerText = document.title;
@@ -89,6 +87,7 @@
             break;
 
             case '5':
+                nombre = "Kenneth 'Kenny' McCormick";
                 document.title = "Kenneth 'Kenny' McCormick";
                 imagen.src = "img/kenny.png";
                 titulo.innerText = document.title;
@@ -96,6 +95,7 @@
             break;
 
             case '6':
+                nombre = "Randy Marsh";
                 document.title = "Randy Marsh";
                 imagen.src = "img/randy.png";
                 titulo.innerText = document.title;
@@ -103,6 +103,7 @@
             break;
 
             case '7':
+                nombre = "Toallín";
                 document.title = "Toallín";
                 imagen.src = "img/toallin.png";
                 titulo.innerText = document.title;
@@ -110,6 +111,7 @@
             break;
 
             case '8':
+                nombre = "Tolkien 'Token' Black";
                 document.title = "Tolkien 'Token' Black";
                 imagen.src = "img/token.png";
                 titulo.innerText = document.title;
@@ -117,6 +119,7 @@
             break;
 
             case '9':
+                nombre = "James 'Jimmy' Valmer";
                 document.title = "James 'Jimmy' Valmer";
                 imagen.src = "img/jimmy.png";
                 titulo.innerText = document.title;
@@ -124,15 +127,25 @@
             break;
 
             default:
+                nombre = "Ike Broflovski";
                 document.title = "Ike Broflovski";
                 imagen.src = "img/ike.png";
                 titulo.innerText = document.title;
                 texto.innerText = "Ike fue adoptado por Gerald Broflovski y Sheila Broflovski. Los padres biológicos de Ike, Harry y Elise Gints (que bautizaron a Ike como 'Peter') lo dieron en adopción porque Canadá había sido 'devastada por las Guerras de la soda' y, como resultado, no pudieron criar a un niño.";
             break;
         }
+        const inputNombre = document.getElementById('nombre');
+        const inputEstilo = document.getElementById('estilo');
+        inputNombre.value = nombre;
+        inputEstilo.value = estilo;
+        console.log(nombre,estilo);
+
 
         window.history.replaceState({}, document.title, window.location.pathname);
 
     </script>
+    <script src="pouch/pouchdb-nightly.js"></script>
+    <script src="pouch/app.js"></script>
+    <script src="pouch/base.js"></script>
 </body>
 </html>
